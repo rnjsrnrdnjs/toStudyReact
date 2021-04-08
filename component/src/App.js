@@ -1,10 +1,10 @@
 import React from 'react';
-import Say from './say';
+import IterationSample from './iterationSample';
 import './App.css';
 
 
 const App=()=>{
-	return <Say/>;
+	return <IterationSample/>;
 };
 
 export default App;
