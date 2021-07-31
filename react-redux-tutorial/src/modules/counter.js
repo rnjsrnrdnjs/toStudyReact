@@ -6,14 +6,25 @@ const DECREASE='counter/DECREASE';
 export const increase=createAction(INCREASE);
 export const decrease=createAction(DECREASE);
 
-const initialState={
-	number:0
+export const increaseAsync =()=>dispatch=>{
+	setTimeout(()=>{
+		dispatch(increase());
+	},1000);
 };
+
+export const decreaseAsync =()=>dispatch=>{
+	setTimeout(()=>{
+		dispatch(decrease());
+	},1000);
+};
+
+
+const initialState=0;
 
 const counter =handleActions(
 	{
-		[INCREASE]:(state,action)=>({number:state.number+1}),
-		[DECREASE]:(state,action)=>({number:state.number-1}),
+		[INCREASE]: state=> state+1,
+		[DECREASE]: state=>state-1,
 	},
 	initialState,
 );
